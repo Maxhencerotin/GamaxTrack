@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Test Github
 public static class GameData
 {
     public enum MedalType
