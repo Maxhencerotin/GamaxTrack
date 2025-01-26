@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Car
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - TransparentCursor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 3962608267
+    locked: 0
+  - name: Lines
+    uniqueID: 913990969
+    locked: 0
+  - name: walls
+    uniqueID: 826878071
+    locked: 0
+  - name: decoration
+    uniqueID: 4092049085
+    locked: 0
+  - name: SkidMark
+    uniqueID: 2435666531
+    locked: 0
+  - name: car
+    uniqueID: 3342699005
+    locked: 0
