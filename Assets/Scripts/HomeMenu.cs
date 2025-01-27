@@ -22,7 +22,8 @@ public class HomeMenu : MonoBehaviour
         float TotalTime = 0;
         for (int i = 1; i <= GameData.NUMBER_LEVEL; i++)
         {
-            float leveliTime = PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + "Level" + i, -1);
+            //float leveliTime = PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + "Level" + i, -1);
+            float leveliTime = SaveManager.LoadData().bestTime[i - 1];
             if (TotalTime >= 0 && leveliTime >= 0)
             {
                 TotalTime += leveliTime;

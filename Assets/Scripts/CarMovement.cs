@@ -40,7 +40,12 @@ public class CarMovement : MonoBehaviour
     public GameObject skidMarks;
     private Rigidbody2D rb;
 
-    private bool canMove;     
+    private bool canMove;
+    
+    //for the ghost saving
+    private List<float> positionsXList = new List<float>();
+    private List<float> positionsYList = new List<float>();
+    private List<float> rotationList = new List<float>();
 
     public float getSpeed()
     {
@@ -62,7 +67,7 @@ public class CarMovement : MonoBehaviour
         steeringPower = NORMAL_STEERING_POWER;           
         wheelsGrip = NORMAL_WHEEL_GRIP;
 
-        SetCanMove(false);
+        canMove = false;
         isSliding = false;
         timeOfSliding = MAXIMUM_SLIDING_TIME;
         SetSkidMarks(false);
@@ -101,6 +106,10 @@ public class CarMovement : MonoBehaviour
             }
 
             Turn();
+
+            positionsXList.Add(transform.position.x);
+            positionsYList.Add(transform.position.y);
+            rotationList.Add(transform.eulerAngles.z);
         }
 
     }
@@ -157,5 +166,20 @@ public class CarMovement : MonoBehaviour
     public void SetCanMove(bool move)
     {
         canMove = move;
+    }
+
+    public List<float> GetXList()
+    {
+        return positionsXList;
+    }
+
+    public List<float> GetYList()
+    {
+        return positionsYList;
+    }
+
+    public List<float> GetRotationList()
+    {
+        return rotationList;
     }
 }

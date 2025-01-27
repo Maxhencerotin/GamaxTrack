@@ -43,7 +43,7 @@ public class Chronometer : MonoBehaviour
 
     public static void DisplayChrono(TextMeshProUGUI textMeshPro, float chrono)
     {
-        if (chrono >= 0) {
+        if (chrono != float.PositiveInfinity) {
             int minutes = Mathf.FloorToInt(chrono / 60);
             int seconds = Mathf.FloorToInt(chrono % 60);
             int milliseconds = Mathf.FloorToInt((chrono * 1000) % 1000);

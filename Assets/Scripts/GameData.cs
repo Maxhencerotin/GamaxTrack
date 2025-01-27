@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Test Github
+//Maybe later we can put all the constant values of the game here
 public static class GameData
 {
     public enum MedalType
@@ -81,4 +81,6 @@ public static class GameData
         new LevelData(5, BRONZE5, SILVER5, GOLD5, AUTHOR5), 
         new LevelData(6, BRONZE6, SILVER6, GOLD6, AUTHOR6) 
     };
+
+    public const string SAVEDDATA_FILENAME = "savedData.dat";
 }

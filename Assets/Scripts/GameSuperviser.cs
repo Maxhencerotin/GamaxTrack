@@ -5,6 +5,7 @@ using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameSuperviser : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class GameSuperviser : MonoBehaviour
     public Chronometer chrono;
     public Countdown countdown;
     public CarMovement car;
+    public GhostMovement ghost;
     public FinishLine finishLine;
 
     public GameObject Menu;
@@ -37,6 +39,7 @@ public class GameSuperviser : MonoBehaviour
 
         gameIsRunning = false;
         countdown.StartCountdown();
+
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class GameSuperviser : MonoBehaviour
         if (!(countdown.status == Countdown.CountdownStatus.Running) && !gameIsRunning)
         {
             car.SetCanMove(true);
+            ghost.SetCanMove(true);
             chrono.StartChrono();
             gameIsRunning = true;
         }
@@ -53,12 +57,27 @@ public class GameSuperviser : MonoBehaviour
         {
             chrono.StopChrono();
             car.SetCanMove(false);
+            ghost.SetCanMove(false);
 
+            /*
             if (chrono.GetChrono() < PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + SceneManager.GetActiveScene().name, float.PositiveInfinity))  //infinity is default value if no value exists in PlayerPrefs
             {
                 PlayerPrefs.SetFloat(GameData.BESTTIME_DATA_KEYWORD + SceneManager.GetActiveScene().name, chrono.GetChrono());
                 PlayerPrefs.Save();
             }
+            */
+
+            
+            SavedData savedData = SaveManager.LoadData();
+            if (chrono.GetChrono() < savedData.bestTime[levelNumber - 1])  //infinity is default value if no value exists in PlayerPrefs
+            {
+                savedData.bestTime[levelNumber - 1] = chrono.GetChrono();
+                savedData.ghostXList[levelNumber - 1] = car.GetXList();
+                savedData.ghostYList[levelNumber - 1] = car.GetYList();
+                savedData.ghostRotationList[levelNumber - 1] = car.GetRotationList();
+                SaveManager.SaveData(savedData);
+            }
+
 
             StartCoroutine(FadeInCoroutine());
             Menu.SetActive(true);
@@ -85,7 +104,9 @@ public class GameSuperviser : MonoBehaviour
 
         Chronometer.DisplayChrono(chronoDisplay, chrono.GetChrono());
         Chronometer.DisplayChrono(chronoDisplayInMenu, chrono.GetChrono()); //will not show if menu is not open
-        Chronometer.DisplayChrono(bestTimeDisplayInMenu, PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + SceneManager.GetActiveScene().name, -1));   //-1 is default value
+
+        //Chronometer.DisplayChrono(bestTimeDisplayInMenu, PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + SceneManager.GetActiveScene().name, -1));   //-1 is default value
+        Chronometer.DisplayChrono(bestTimeDisplayInMenu, SaveManager.LoadData().bestTime[levelNumber - 1]);
     }
 
     public void OnMenuClic()

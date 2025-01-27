@@ -54,6 +54,9 @@ TagManager:
   - name: decoration
     uniqueID: 4092049085
     locked: 0
+  - name: ghost
+    uniqueID: 308272435
+    locked: 0
   - name: SkidMark
     uniqueID: 2435666531
     locked: 0

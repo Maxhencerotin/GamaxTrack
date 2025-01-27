@@ -21,7 +21,9 @@ public class ActivateMedal : MonoBehaviour
         }
         GameData.LevelData level = GameData.LEVELS[levelNumber - 1];
 
-        float levelTime = PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + "Level" + level.levelNumber, -1);
+        //float levelTime = PlayerPrefs.GetFloat(GameData.BESTTIME_DATA_KEYWORD + "Level" + level.levelNumber, -1);
+        float levelTime = SaveManager.LoadData().bestTime[levelNumber - 1];
+
         float timeToBeat = 0f;
         switch (MedalType)
         {
@@ -41,7 +43,7 @@ public class ActivateMedal : MonoBehaviour
                 break;
         }
 
-        if (levelTime >= 0 && levelTime < timeToBeat)
+        if (levelTime < timeToBeat)
         {
             medal.enabled = true;
         }
