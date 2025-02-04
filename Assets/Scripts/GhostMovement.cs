@@ -28,7 +28,8 @@ public class GhostMovement : MonoBehaviour
     {
         if (canMove)
         {
-            if (fixedFrameNumber < positionsXList.Count)    //should be the same as positionsYList and rotationList
+            int sizePosList = positionsXList.Count;  //should be the same as positionsYList and rotationList
+            if (fixedFrameNumber < sizePosList)
             { 
                 transform.position = new Vector3(positionsXList[fixedFrameNumber], positionsYList[fixedFrameNumber], 0);
                 transform.eulerAngles = new Vector3(0, 0, rotationList[fixedFrameNumber]);
