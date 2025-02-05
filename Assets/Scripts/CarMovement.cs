@@ -107,10 +107,11 @@ public class CarMovement : MonoBehaviour
 
             Turn();
 
-            positionsXList.Add(transform.position.x);
-            positionsYList.Add(transform.position.y);
-            rotationList.Add(transform.eulerAngles.z);
         }
+
+        positionsXList.Add(transform.position.x);
+        positionsYList.Add(transform.position.y);
+        rotationList.Add(transform.eulerAngles.z);
 
     }
 

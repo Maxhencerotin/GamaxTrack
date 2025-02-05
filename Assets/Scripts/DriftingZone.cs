@@ -7,13 +7,14 @@ public class DriftingZone : MonoBehaviour
 {
 
     private const float DISTANCE_WARNING = 0.3f;    //percentage of the slider size from the gauges from which the warning start to appear 
-    private const float WARNING_ALPHA_MAX = 0.6f;
+    private const float WARNING_ALPHA_MAX = 0.7f;
     private const float WARNING_ALPHA_MIN = 0.0f;
 
     //SerializeField is used so I can see it in the hierarchy but let it private
     //(i used it here to try but i shoul maybe extend that to the whole project later)
     [SerializeField] private GameObject driftingGauge;
-    public Image warningColour;
+    public Image warningColourLeft;
+    public Image warningColourRight;
     public SliderControl sliderControl;
 
     public CarMovement car;
@@ -42,12 +43,18 @@ public class DriftingZone : MonoBehaviour
 
             //check warning colour
            
-            Color color = warningColour.color;
+            Color color = warningColourLeft.color;  //same colour for right
             if (sliderControl.getSlidingValue() - car.GetSlidingLimit() <= DISTANCE_WARNING)  //when we are at DistanceWarning from the slidingLimit
             {
+                /*
+                if (soundOn)
+                {
+                    Handheld.Vibrate();
+                }
+                */
                 if (sliderControl.getSlidingValue() - car.GetSlidingLimit() <= 0)
                 {
-                    color.a = WARNING_ALPHA_MAX;
+                    color.a = 1.0f;
                 }
                 else
                 {
@@ -63,7 +70,8 @@ public class DriftingZone : MonoBehaviour
                 color.a = 0.0f; 
                 
             }
-            warningColour.color = color;
+            warningColourLeft.color = color;
+            warningColourRight.color = color;
         }
 
     }
