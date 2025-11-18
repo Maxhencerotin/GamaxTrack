@@ -6,7 +6,10 @@
 
 Gamax is a skill-based 2D racing mobile game Built with **Unity** and **C#**.
 
-You can download it at this link : *Comming soon*
+📥 **Download it now from the links below:**
+
+**Android:** [Google Play Store → Gamax Track](https://play.google.com/store/apps/details?id=com.MaxHence.Gamax)  
+**iOS:** *coming soon*
 
 ## 🏎️ Game Concept
 **Easy to play, hard to master !**
