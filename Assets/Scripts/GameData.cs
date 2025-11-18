@@ -37,40 +37,40 @@ public static class GameData
 
 
     //LEVEL1
-    public const float BRONZE1 = 15f;   //OK
-    public const float SILVER1 = 12f;   //OK 3
-    public const float GOLD1 = 9.58f;   //OK 2.42
-    public const float AUTHOR1 = 9.251f;
+    public const float BRONZE1 = 20f;   
+    public const float SILVER1 = 14f;   
+    public const float GOLD1 = 11f;   
+    public const float AUTHOR1 = 9.58f;
 
     //LEVEL 2
-    public const float BRONZE2 = 15f;   //OK
-    public const float SILVER2 = 12.5f; //OK 2.5
-    public const float GOLD2 = 11f;     //OK 1.5
-    public const float AUTHOR2 = 10.241f;
+    public const float BRONZE2 = 20f;   
+    public const float SILVER2 = 15f; 
+    public const float GOLD2 = 13f;     
+    public const float AUTHOR2 = 11f;
 
     //LEVEL 3
-    public const float BRONZE3 = 21f;   //OK
-    public const float SILVER3 = 18f;   //OK 3
-    public const float GOLD3 = 16f;     //OK 2
-    public const float AUTHOR3 = 15.236f;
+    public const float BRONZE3 = 30f;   
+    public const float SILVER3 = 23f;   
+    public const float GOLD3 = 18f;     
+    public const float AUTHOR3 = 16f;
 
     //LEVEL 4
-    public const float BRONZE4 = 19f;   //OK
-    public const float SILVER4 = 16.5f; //OK 2.5
-    public const float GOLD4 = 15f;     //OK 1.5
-    public const float AUTHOR4 = 14.777f;  
+    public const float BRONZE4 = 30f;   
+    public const float SILVER4 = 22f; 
+    public const float GOLD4 = 18f;     
+    public const float AUTHOR4 = 15f;  
 
     //LEVEL 5
-    public const float BRONZE5 = 18.5f;   //OK
-    public const float SILVER5 = 16.5f;   //OK 2
-    public const float GOLD5 = 15.5f;   //OK 1
-    public const float AUTHOR5 = 14.390f;   //vrmt chaud
+    public const float BRONZE5 = 30f;   
+    public const float SILVER5 = 22f;   
+    public const float GOLD5 = 18f;   
+    public const float AUTHOR5 = 15.5f;   
 
     //LEVEL 6
-    public const float BRONZE6 = 20f;   //OK
-    public const float SILVER6 = 18f;   //OK 2
-    public const float GOLD6 = 17f;     //OK 1
-    public const float AUTHOR6 = 16.703f;
+    public const float BRONZE6 = 30f;  
+    public const float SILVER6 = 23f;   
+    public const float GOLD6 = 19f;     
+    public const float AUTHOR6 = 17f;
 
     public static readonly LevelData[] LEVELS = new LevelData[NUMBER_LEVEL] //static readonly is similar to const (which doesn't work for complex objects)
     {
