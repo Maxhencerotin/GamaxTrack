@@ -35,8 +35,6 @@ public class GameSuperviser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-        //PlayerPrefs.Save();       //for debugging the code
 
         gameIsRunning = false;
         countdown.StartCountdown();

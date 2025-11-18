@@ -78,12 +78,7 @@ public static class SaveManager
         try
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            /*
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
-            {
-                formatter.Serialize(stream, data);
-            }
-            */
+
             using (MemoryStream memStream = new MemoryStream())
             {
                 formatter.Serialize(memStream, data);
@@ -104,16 +99,14 @@ public static class SaveManager
         {
             if (File.Exists(filePath))
             {
+                //File.Delete(filePath); //!!! THIS LINE IS TO UNCOMMENT IF WE WANT TO DELETE ALL THE DATA
+
+
                 byte[] encryptedData = File.ReadAllBytes(filePath);
                 byte[] decryptedData = DecryptData(encryptedData);
 
                 BinaryFormatter formatter = new BinaryFormatter();
-                /*
-                using (FileStream stream = new FileStream(filePath, FileMode.Open))
-                {
-                    return (SavedData)formatter.Deserialize(stream);
-                }
-                */
+
                 using (MemoryStream memStream = new MemoryStream(decryptedData))
                 {
                     SavedData loadedData = (SavedData)formatter.Deserialize(memStream);
